@@ -7,3 +7,7 @@
 
 # Checkpoints ipynb
 *.ipynb_checkpoints
+
+# R History
+*.Rhistory
+
