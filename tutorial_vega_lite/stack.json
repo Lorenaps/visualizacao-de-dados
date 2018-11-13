@@ -1,0 +1,288 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "title": "Participação dos países em sites Q&A",
+    "data": {
+        "url": "https://raw.githubusercontent.com/Lorenaps/visualizacao-de-dados/master/dados/dados_stack.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "vconcat": [
+        {
+            "encoding": {
+                "y":{
+                    "field": "perc_a",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Porcentagem de usuários que responderam perguntas"
+                    }
+                },
+                "x":{
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": {
+                        "op": "max",
+                        "field": "perc_a", 
+                        "order":"ascending"
+                    },
+                    "axis": {
+                        "title": "Países"
+                    }
+                },
+                "color":{
+                    "condition":{
+                        "selection": "pais",
+                        "field": "country",
+                        "type": "nominal",
+                        "legend": null,
+                        "scale": {
+                            "scheme": "yelloworangebrown"
+                          }
+                    },
+                    "value": "#EFEFEF"
+                }    
+            },
+            "width": 850,
+            "height": 400,
+            "mark": "bar",
+            "selection": {
+                "pais": {
+                    "type": "single",
+                    "fields": [
+                        "country"
+                    ]
+                }
+            }
+        },
+        {
+            "encoding": {
+                "y":{
+                    "field": "perc_q",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Porcentagem de usuários que fizeram perguntas"
+                    }
+                },
+                "x":{
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": {
+                        "op": "max",
+                        "field": "perc_q", 
+                        "order":"ascending"
+                    },
+                    "axis": {
+                        "title": "Países"
+                    }
+                },
+                "color":{
+                    "condition":{
+                        "selection": "pais",
+                        "field": "country",
+                        "type": "nominal",
+                        "legend": null,
+                        "scale": {
+                            "scheme": "yelloworangebrown"
+                          }
+                    },
+                    "value": "#EFEFEF"
+                }    
+            },
+            "width": 850,
+            "height": 400,
+            "mark": "bar",
+            "selection": {
+                "pais": {
+                    "type": "single",
+                    "fields": [
+                        "country"
+                    ]
+                }
+            }
+        },
+        {
+            "encoding": {
+                "y":{
+                    "field": "GNI",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Coeficiente de Gini"
+                    }
+                },
+                "x":{
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": {
+                        "op": "sum",
+                        "field": "GNI", 
+                        "order":"ascending"
+                    },
+                    "axis": {
+                        "title": "Países"
+                    }
+                },
+                "color":{
+                    "condition":{
+                        "selection": "pais",
+                        "field": "country",
+                        "type": "nominal",
+                        "legend": null,
+                        "scale": {
+                            "scheme": "yelloworangebrown"
+                          }
+                    },
+                    "value": "#EFEFEF"
+                } 
+            },
+            "width": 850,
+            "height": 200,
+            "mark": "bar",
+            "selection": {
+                "pais": {
+                    "type": "single",
+                    "fields": [
+                        "country"
+                    ]
+                }
+            }
+        },
+        {
+            "encoding": {
+                "y":{
+                    "field": "Internet",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Acesso a Internet"
+                    }
+                },
+                "x":{
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": {
+                        "op": "sum",
+                        "field": "Internet", 
+                        "order":"ascending"
+                    },
+                    "axis": {
+                        "title": "Países"
+                    }
+                },
+                "color":{
+                    "condition":{
+                        "selection": "pais",
+                        "field": "country",
+                        "type": "nominal",
+                        "legend": null,
+                        "scale": {
+                            "scheme": "yelloworangebrown"
+                          }
+                    },
+                    "value": "#EFEFEF"
+                } 
+            },
+            "width": 850,
+            "height": 200,
+            "mark": "bar",
+            "selection": {
+                "pais": {
+                    "type": "single",
+                    "fields": [
+                        "country"
+                    ]
+                }
+            }   
+        },
+        {
+            "encoding": {
+                "y":{
+                    "field": "PDI",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Proeficiência em Ingles"
+                    }
+                },
+                "x":{
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": {
+                        "op": "sum",
+                        "field": "PDI", 
+                        "order":"ascending"
+                    },
+                    "axis": {
+                        "title": "Países"
+                    }
+                },
+                "color":{
+                    "condition":{
+                        "selection": "pais",
+                        "field": "country",
+                        "type": "nominal",
+                        "legend": null,
+                        "scale": {
+                            "scheme": "yelloworangebrown"
+                          }
+                    },
+                    "value": "#EFEFEF"
+                } 
+            },
+            "width": 850,
+            "height": 200,
+            "mark": "bar",
+            "selection": {
+                "pais": {
+                    "type": "single",
+                    "fields": [
+                        "country"
+                    ]
+                }
+            }   
+        },
+        {
+            "encoding": {
+                "y":{
+                    "field": "IDV",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Índice de Individualismo"
+                    }
+                },
+                "x":{
+                    "field": "country",
+                    "type": "nominal",
+                    "sort": {
+                        "op": "sum",
+                        "field": "IDV", 
+                        "order":"ascending"
+                    },
+                    "axis": {
+                        "title": "Países"
+                    }
+                },
+                "color":{
+                    "condition":{
+                        "selection": "pais",
+                        "field": "country",
+                        "type": "nominal",
+                        "legend": null,
+                        "scale": {
+                            "scheme": "yelloworangebrown"
+                          }
+                    },
+                    "value": "#EFEFEF"
+                } 
+            },
+            "width": 850,
+            "height": 200,
+            "mark": "bar",
+            "selection": {
+                "pais": {
+                    "type": "single",
+                    "fields": [
+                        "country"
+                    ]
+                }
+            }
+        }   
+    ]
+}
