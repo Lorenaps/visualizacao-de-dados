@@ -1,0 +1,30 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "title": "Participação dos países em sites Q&A",
+    "data": {
+        "url": "https://raw.githubusercontent.com/Lorenaps/visualizacao-de-dados/master/dados/dados_stack.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "repeat": {
+        "column": ["GNI", "Internet", "EPI", "PDI", "IDV", "MAS", "UAI"]
+    },
+    "spec":{
+        "mark":"bar",
+        "encoding": {
+            "x":{
+                "field": {
+                    "repeat": "column"
+                },
+                "type": "quantitative"
+            },
+            "y":{
+                "aggregate": "max",
+                "type":"quantitative"
+            }
+        }
+    }
+    
+   
+}
