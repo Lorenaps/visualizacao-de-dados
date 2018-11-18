@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/Lorenaps/visualizacao-de-dados/master/dados/dados_enade_agrupados.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "width": 600,
+    "height": 300,
+    "mark": "bar",
+    "encoding": {
+        "y": {
+            "aggregate": "sum",
+            "field": "qtd",
+            "type": "quantitative",
+            "axis": {
+                "title": "Proporção de alunos"
+            },
+            "stack": "normalize"
+        },
+        "x": {
+            "field": "Renda total da família",
+            "type": "nominal",
+            "axis": {
+                "title": "Renda"
+            },
+            "sort": ["Até 1,5 salário mínimo",
+                    "De 1,5 a 3 salários mínimos",
+                    "De 3 a 4,5 salários mínimos",
+                    "De 4,5 a 6 salários mínimos",
+                    "De 6 a 10 salários mínimos",
+                    "De 10 a 30 salários mínimos",
+                    "Acima de 30 salários mínimos"]
+        },
+        "color": {
+            "field": "Ingresso via políticas de ação afirmativa ou inclusão social?",
+            "title": "Via Política Afirmativa",
+            "type": "nominal",
+            "scale": {
+                "range": [
+                    "#346DA6",
+                    "#76CAC5"
+                ]
+            }
+        }
+    },
+    "config": {
+        "view": {
+            "stroke": "transparent"
+        },
+        "axis": {
+            "domainWidth": 1
+        }
+    }
+}
