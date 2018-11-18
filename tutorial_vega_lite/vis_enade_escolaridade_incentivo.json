@@ -1,0 +1,182 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+    "data": {
+        "url": "https://raw.githubusercontent.com/Lorenaps/visualizacao-de-dados/master/dados/dados_enade_agrupados.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "vconcat": [
+        {
+            "title": {
+                "text": "Distribuição de alunos com acesso ao Ensino Superior",
+                "fontSize": 15
+            },
+            "width": 600,
+            "height": 150,
+            "mark": "bar",
+            "selection": {
+                "tipo_ingresso": {
+                    "type": "single",
+                    "fields": [
+                        "Ingresso via políticas de ação afirmativa ou inclusão social?"
+                    ]
+                }
+            },
+            "encoding": {
+                "x": {
+                    "aggregate": "sum",
+                    "field": "qtd",
+                    "type": "quantitative",
+                    "axis": {
+                        "title": "Proporção de alunos"
+                    },
+                    "stack": "normalize"
+                },
+                "color": {
+                    "field": "Ingresso via políticas de ação afirmativa ou inclusão social?",
+                    "type": "nominal",
+                    "title": "Via Política Afirmativa",
+                    "scale": {
+                        "range": [
+                            "#346DA6",
+                            "#76CAC5"
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "title": {
+                "text": "Escolaridade dos Pais",
+                "fontSize": 15
+            },
+            "hconcat": [
+                {
+                    "width": 300,
+                    "height": 150,
+                    "mark": "bar",
+                    "transform": [
+                        {
+                            "filter": {
+                                "selection": "tipo_ingresso"
+                            }
+                        }
+                    ],
+                    "encoding": {
+                        "x": {
+                            "field": "Escolaridade da Mãe",
+                            "type": "nominal",
+                            "sort": {
+                                "op": "sum",
+                                "field": "qtd",
+                                "order": "ascending"
+                            }
+                        },
+                        "y": {
+                            "aggregate": "sum",
+                            "field": "qtd",
+                            "type": "quantitative",
+                            "title": "Quantidade de Mães"
+                        }
+                    }
+                },
+                {
+                    "width": 300,
+                    "height": 150,
+                    "mark": "bar",
+                    "transform": [
+                        {
+                            "filter": {
+                                "selection": "tipo_ingresso"
+                            }
+                        }
+                    ],
+                    "encoding": {
+                        "x": {
+                            "field": "Escolaridade do Pai",
+                            "type": "nominal",
+                            "sort": {
+                                "op": "sum",
+                                "field": "qtd",
+                                "order": "ascending"
+                            }
+                        },
+                        "y": {
+                            "aggregate": "sum",
+                            "field": "qtd",
+                            "type": "quantitative",
+                            "title": "Quantidade de Pais"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "title":{
+                "text": "Primeiro a concluir Ensino Superior e Incentivo durante a graduação",
+                "fontSize": 15
+            },
+            "hconcat": [
+                {
+                    "width": 300,
+                    "height": 150,
+                    "mark": "bar",
+                    "transform": [
+                        {
+                            "filter": {
+                                "selection": "tipo_ingresso"
+                            }
+                        }
+                    ],
+                    "encoding": {
+                        "x": {
+                            "field": "Alguém em sua família concluiu um curso superior?",
+                            "type": "nominal",
+                            "sort": {
+                                "op": "sum",
+                                "field": "qtd",
+                                "order": "ascending"
+                            }
+                        },
+                        "y": {
+                            "aggregate": "sum",
+                            "field": "qtd",
+                            "type": "quantitative",
+                            "title": "Quantidade de Alunos"
+                        }
+                    }
+                },
+                {
+                    "width": 300,
+                    "height": 150,
+                    "mark": "bar",
+                    "transform": [
+                        {
+                            "filter": {
+                                "selection": "tipo_ingresso"
+                            }
+                        }
+                    ],
+                    "encoding": {
+                        "x": {
+                            "field": "Incentivo para cursar a graduação",
+                            "type": "nominal",
+                            "sort": {
+                                "op": "sum",
+                                "field": "qtd",
+                                "order": "ascending"
+                            }
+                        },
+                        "y": {
+                            "aggregate": "sum",
+                            "field": "qtd",
+                            "type": "quantitative",
+                            "title": "Quantidade de Alunos"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
